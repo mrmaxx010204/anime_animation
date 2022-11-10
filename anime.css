@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.nav {
+  position: absolute;
+  left: calc(50%);
+  z-index: 9;
+  margin-top: 25px;
+}
+.nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+
+.nav a {
+  text-decoration: none;
+  color: orange;
+  display: block;
+  transition: 0.3s background-color;
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 150px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+  /* Options 2 - Float
+  .nav li {
+    float: left;
+  }
+  .nav ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .nav {
+    background-color: #444;
+  }
+  */
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: #0e111f;
+}
+.demo-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  left: calc(50%);
+  transform: translate(-48%);
+  width: 290px;
+  height: 100%;
+  color: orange;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("baseimg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.container-img {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+  visibility: hidden;
+  /* opacity: 0; */
+  /* transition: visibility 0s linear 300ms, opacity 300ms; */
+}
+.container-img:nth-child(1) {
+  background-image: url("demon-small.jpg");
+  background-position: top;
+}
+.container-img:nth-child(2) {
+  background-image: url("satouru-small.jpg");
+  background-position: bottom;
+}
+.container-img:nth-child(3) {
+  background-image: url("goku.jpg");
+  background-position: center;
+}
+.container-img:nth-child(4) {
+  background-image: url("ghoul re.jpg");
+}
+.transparent-section {
+  width: 23%;
+  background-color: #0e111f;
+  opacity: 0.6;
+  height: 100%;
+  position: absolute;
+}
+.card-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  padding-left: 90px;
+  transition: ease 1s;
+}
+.card-text {
+  border: 0px ;
+}
+
+.card {
+  border-radius: 12px;
+  /* padding: 10px; */
+  box-sizing: border-box;
+  height: 18vh;
+  width: 20vw;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
+  position: relative;
+  display: flex;
+  transition: ease 0.7s;
+  --myVar: 0;
+  z-index: 1;
+  filter: grayscale(0.8);
+}
+
+.card-effect:hover {
+  transform: translateX(30px);
+  filter: grayscale(0);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(231, 56, 202),
+    rgba(218, 50, 207, 0.048)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  /* visibility: hidden; */
+  opacity: var(--myVar);
+  transition: 0.5s ease;
+}
+
+.card:nth-child(1) {
+  filter: grayscale(0);
+  padding-left: 80px;
+}
+.card-text svg{
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+}
+.card:nth-child(2) {
+  background-image: url("demon-thumbnail.png");
+  background-size: cover;
+  background-position: top;
+}
+.card:nth-child(3) {
+  background-image: url("satouru-thumbnail.png");
+  background-size: cover;
+  background-position: bottom;
+}
+.card:nth-child(4) img {
+  /* background-image: url("goku-thumbnail.png");
+  background-size: cover;
+  background-position: top; */
+  width: 20vw;
+  height: 18vh;
+  border-radius: 12px;
+  object-fit: fill;
+}
+.card:nth-child(5) {
+  background-image: url("ghoul\ re-thumbnail.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.card:nth-child(1)::before {
+  visibility: hidden !important;
+  opacity: var(--myVar);
+}
+
+.card:nth-child(2)::before {
+  background: linear-gradient(
+    90deg,
+    rgb(231, 56, 202),
+    rgba(218, 50, 207, 0.048)
+  );
+  opacity: var(--myVar);
+}
+.card:nth-child(3)::before {
+  background: linear-gradient(90deg, rgb(254, 7, 8), rgba(254, 7, 8, 0.048));
+  opacity: var(--myVar);
+}
+.card:nth-child(4)::before {
+  background: linear-gradient(90deg, rgb(0, 137, 250), rgba(254, 7, 8, 0.048));
+  opacity: var(--myVar);
+}
+.card:nth-child(5)::before {
+  background: linear-gradient(
+    90deg,
+    rgb(161, 199, 126),
+    rgba(254, 7, 8, 0.048)
+  );
+  opacity: var(--myVar);
+}
+
+particle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+}
